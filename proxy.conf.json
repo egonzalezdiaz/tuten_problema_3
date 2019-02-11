@@ -1,0 +1,8 @@
+{   "/login": {
+      "target": "https://dev.tuten.cl:443/TutenREST/rest/user/",
+      "secure": false,
+      "headers": {
+        "Content-Type" : "application/json"
+      }
+   } 
+}

@@ -1,0 +1,59 @@
+<div>
+  <div style="margin-bottom:5px">
+    <select #campo (change)="seleccionCampoFiltro(campo.value)">
+      <option value="bookingId">BookingId</option>
+      <option value="precio">Precio</option>
+    </select>
+    
+    <select #filtro (change)="seleccionTipoFiltro(filtro.value)">
+      <option value="like">Like</option>
+      <option value="gt">mayor igual que</option>
+      <option value="lt">menor igual que</option>
+    </select>
+    
+    <input  type="number" #valorNumero (keyup)="ingresaValorFiltro(valorNumero.value)">
+    
+    <button (click)="filtrar()">Filtrar</button>
+    
+  </div>
+  <div>
+    <h3 *ngIf="listaFiltrada.length == 0">Cargando lista...</h3>
+  </div>
+  
+  <table *ngIf="listaFiltrada.length > 0" border="1">
+    <tr>
+      <th>
+        BookingId
+      </th>
+      <th>
+        Cliente
+      </th>
+      <th>
+        Fecha de creación
+      </th>
+      <th>
+        Dirección
+      </th>
+      <th>
+        Precio
+      </th>
+    </tr>
+    <tr *ngFor="let booking of listaFiltrada">
+      <td>
+        {{booking["bookingId"]}}
+      </td>
+      <td>
+        {{booking["cliente"]}}
+      </td>
+      <td>
+        {{booking["fechaCreacion"]}}
+      </td>
+      <td>
+        {{booking["direccion"]}}
+      </td>
+      <td>
+        {{booking["precio"]}}
+      </td>
+    </tr>
+  </table>
+</div> 
