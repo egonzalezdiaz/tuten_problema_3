@@ -4,6 +4,9 @@ Este es el desarrollo del problema n°3 de la prueba.
 Para este proyecto fue necesario hacer un pequeño servidor HTTP con *express*, para resolver
 el problema de CORS generado por el servicio web.
 
+Los fuentes principales de la aplicación se encuentra en : *src/app/*.  
+Donde estos se encuentran distribuidos en tres componentes: app, login y lista.
+
 ## Requisitos
   * Node >= 8
   * NPM >= 6
