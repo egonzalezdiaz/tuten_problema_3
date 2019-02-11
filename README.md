@@ -16,5 +16,5 @@ el problema de CORS generado por el servicio web.
 ## Utilización
   * Asegurar que está ejecutadose el proxy del proyecto (tuten_problema_3_proxy).
   * Ejecutar en la raiz del proyecto el comando : npm start
-  * El navegador se iniciar con la ruta : http://localhost:4200, donde aparecerá el login de la parte 1 del problema.
+  * El navegador se lanzará con la ruta : http://localhost:4200, donde aparecerá el login de la parte 1 del problema.
   * Una vez logeado correctamente, se desplegará la lista de bookings con la lista de filtros requeridos.
