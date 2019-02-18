@@ -15,7 +15,7 @@ export class ListaComponent implements OnInit{
   private listaFiltrada = []; //esta lista se muestra en template
   private campoFiltro : string = "bookingId";
   private tipoFiltro : string = "like";
-  private valorFiltro : (string|number) = "";
+  private valorFiltro : string = "";
   private parametros : any; 
 
   constructor(
@@ -36,7 +36,7 @@ export class ListaComponent implements OnInit{
 
     this.listado.obtener(this.parametros)
       .then((resultado) => {
-        if (resultado.length > 0){
+        if (resultado){
           
           //funcion para mejorar aspecto fecha de creacion
           let ceroIzquierda = (valor:number) => valor < 10 ? "0"+valor: valor;
@@ -71,7 +71,9 @@ export class ListaComponent implements OnInit{
       });
   }
   
-  filtrar(listado){
+  filtrar(){
+    
+    let listado = [];
     
     //si no hay valor, entonces muestra toda la lista 
     if (this.valorFiltro.trim() == ""){
@@ -79,17 +81,16 @@ export class ListaComponent implements OnInit{
       return;
     }
     
-    let listado = [];
     for (let fila of this.listaCompleta){
       let valorFiltrar = fila[this.campoFiltro];
       
       if (this.tipoFiltro == "like" && (""+valorFiltrar+"").indexOf(this.valorFiltro) >= 0){
         //filtra bookingId por contener valor 
         listado.push(fila);
-      } else if (this.tipoFiltro == "gt" && valorFiltrar >= this.valorFiltro){
+      } else if (this.tipoFiltro == "gt" && valorFiltrar >= parseInt(this.valorFiltro)){
         //filtra bookingPrice por mayor o igual valor
         listado.push(fila);
-      } else if (this.tipoFiltro == "lt" && valorFiltrar <= this.valorFiltro){
+      } else if (this.tipoFiltro == "lt" && valorFiltrar <= parseInt(this.valorFiltro)){
         //filtra bookingPrice por menor o igual valor
         listado.push(fila)
       }
@@ -105,7 +106,7 @@ export class ListaComponent implements OnInit{
     this.tipoFiltro = filtro;
   }
   
-  ingresaValorFiltro(valor:number){
+  ingresaValorFiltro(valor:string){
     this.valorFiltro = valor;
   }
 }

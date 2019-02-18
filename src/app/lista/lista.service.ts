@@ -10,14 +10,14 @@ export class ListaService {
   
   constructor(private http: HttpClient) {}
 
-  obtener(parametros:any): Promise<boolean> {
-    /*
+  obtener(parametros:any): Promise<[any]> {
+    /*  
       Devolución de una promesa con el resultado
       del logueo
     */
     
     //parametros para el proxy
-    let parametros = new HttpParams()
+    let args = new HttpParams()
       .set("usuario",parametros["usuario"])
       .set("aplicacion", parametros["aplicacion"])
       .set("token", parametros["token"]);
@@ -25,7 +25,7 @@ export class ListaService {
     return new Promise((resolver,reject) => {
       
       //llamada a la url del proxy
-      return this.http.get(this.URL,{params:parametros})
+      return this.http.get(this.URL,{params:args})
         .subscribe((data: any) => { 
           //retorna true si status retornado por el proxy
           //es 200, en caso contrario el login falló

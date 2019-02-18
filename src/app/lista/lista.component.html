@@ -17,10 +17,10 @@
     
   </div>
   <div>
-    <h3 *ngIf="listaFiltrada.length == 0">Cargando lista...</h3>
+    <h3 *ngIf="listaFiltrada.length == 0 && listaCompleta.length == 0">Cargando lista...</h3>
   </div>
   
-  <table *ngIf="listaFiltrada.length > 0" border="1">
+  <table *ngIf="listaFiltrada.length > 0 || listaCompleta.length > 0" border="1">
     <tr>
       <th>
         BookingId
